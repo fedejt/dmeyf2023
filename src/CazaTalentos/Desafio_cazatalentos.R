@@ -1,7 +1,6 @@
 # ORDEN SELECCIONADO (Cz# = CAZATALENTOS #)
 
 # Se ordena en base a las probabilidades obtenidas y la confianza en cada una.
-# Cuando es posible actualizo las probabilidades por inferencia Bayesiana.
 
 # Cz6 ~ Cz7 > Cz8 > Cz5 > Cz1 > Cz2 > Cz3 > Cz9 > Cz4
 
@@ -44,7 +43,8 @@ print(primera_ganadora)
 # mejor es mayor (más riesgo de "overfitear")
 
 mejor <- 0.8
-peloton <- c(unlist(sapply(c(1,2,3,4,5,6), function(x) { rep(80-x,7-x)})), seq(from=73, to=10, by = -1))
+peloton <- c(unlist(sapply(c(1,2,3,4,5,6), function(x) { rep(80-x,7-x)})), 
+             seq(from=73, to=10, by = -1))
 peloton <- c(peloton, rep(10, (199-length(peloton))))/100
 jugadoras <- c(mejor, peloton)
 
@@ -114,10 +114,13 @@ cz5_errores_ronda_3 <- (cz5_tiros - cz5_aciertos_ronda_3)
 
 cz5_probabilidad_aposteriori <- (cz5_aciertos_ronda_1+cz5_aciertos_ronda_2+cz5_aciertos_ronda_3)/(3*cz5_tiros)
 
-cz5_IC_95_aposteriori <- qbeta(c(.025, .975), (cz5_aciertos_ronda_1+cz5_aciertos_ronda_2+cz5_aciertos_ronda_3), (cz5_errores_ronda_1+cz5_errores_ronda_2+cz5_errores_ronda_3))
+cz5_IC_95_aposteriori <- qbeta(c(.025, .975), 
+                               (cz5_aciertos_ronda_1+cz5_aciertos_ronda_2+cz5_aciertos_ronda_3), 
+                               (cz5_errores_ronda_1+cz5_errores_ronda_2+cz5_errores_ronda_3))
 
 print("CAZATALENTOS 5")
-print(paste0("JUGADORA A, prob. aposteriori: ", cz5_probabilidad_aposteriori, " IC95% (", cz5_IC_95_aposteriori[1], " - ", cz5_IC_95_aposteriori[2], ")"))
+print(paste0("JUGADORA A, prob. aposteriori: ", cz5_probabilidad_aposteriori, " IC95% (", 
+             cz5_IC_95_aposteriori[1], " - ", cz5_IC_95_aposteriori[2], ")"))
 
 
 # La jugadora B parece la mejor de las 5 con un promedio de acieros de 0.78
@@ -133,10 +136,12 @@ cz5_errores_ronda_3 <- (cz5_tiros - cz5_aciertos_ronda_3)
 
 cz5_probabilidad_aposteriori <- (cz5_aciertos_ronda_1+cz5_aciertos_ronda_2+cz5_aciertos_ronda_3)/(3*cz5_tiros)
 
-cz5_IC_95_aposteriori <- qbeta(c(.025, .975), (cz5_aciertos_ronda_1+cz5_aciertos_ronda_2+cz5_aciertos_ronda_3), (cz5_errores_ronda_1+cz5_errores_ronda_2+cz5_errores_ronda_3))
+cz5_IC_95_aposteriori <- qbeta(c(.025, .975), (cz5_aciertos_ronda_1+cz5_aciertos_ronda_2+cz5_aciertos_ronda_3), 
+                               (cz5_errores_ronda_1+cz5_errores_ronda_2+cz5_errores_ronda_3))
 
 print("CAZATALENTOS 5")
-print(paste0("JUGADORA A, prob. aposteriori: ", cz5_probabilidad_aposteriori, " IC95% (", cz5_IC_95_aposteriori[1], " - ", cz5_IC_95_aposteriori[2], ")"))
+print(paste0("JUGADORA A, prob. aposteriori: ", cz5_probabilidad_aposteriori, " IC95% (", 
+             cz5_IC_95_aposteriori[1], " - ", cz5_IC_95_aposteriori[2], ")"))
 
 
 # CAZATALENTOS 6 ----------------------------------------------------------
@@ -210,10 +215,13 @@ cz7_errores_despues <- (cz7_tiros_despues - cz7_aciertos_despues)
 
 cz7_probabilidad_aposteriori <- (cz7_aciertos_antes + cz7_aciertos_despues)/(cz7_tiros_antes + cz7_tiros_despues)
 
-cz7_IC_95_aposteriori <- qbeta(c(.025, .975), (cz7_aciertos_despues + cz7_aciertos_despues), (cz7_errores_despues + cz7_errores_despues))
+cz7_IC_95_aposteriori <- qbeta(c(.025, .975), 
+                               (cz7_aciertos_despues + cz7_aciertos_despues), 
+                               (cz7_errores_despues + cz7_errores_despues))
 
 print("CAZATALENTOS 7")
-print(paste0("Prob. aposteriori: ", cz7_probabilidad_aposteriori, " IC95% (", cz7_IC_95_aposteriori[1], " - ", cz7_IC_95_aposteriori[2], ")"))
+print(paste0("Prob. aposteriori: ", cz7_probabilidad_aposteriori, " IC95% (", 
+             cz7_IC_95_aposteriori[1], " - ", cz7_IC_95_aposteriori[2], ")"))
 
 # La probabilidad a posteriori se mantiene en 0.8 pero ahora tenemos más confianza en este valor (0.742 - 0.852)
 
