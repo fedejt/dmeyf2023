@@ -42,9 +42,9 @@ print(primera_ganadora)
 # Similar al caso de la cazatalentos 1, pero en este caso hay más jugadoras
 # parecidas entre sí, por lo que el riesgo de no seleccionar a la verdaderamente
 # mejor es mayor (más riesgo de "overfitear").
-# En ambos casos (Cz1 y Cz2), si la mejor jugadora tiene un indice de enceste
+# En ambos casos (Cz1 y Cz2), si la mejor jugadora tiene un índice de enceste
 # 0.8 < p < 0.85 (no puede ser mayor a .85 según el enunciado), la probabilidad
-# se seleccionar a la mejor aumenta a medida que aumenta p (menos prob. overfiting).
+# de seleccionar a la mejor aumenta a medida que aumenta p (menor prob. overfiting).
 # Pero siempre la prob. para la Cz2 se mantiene menor que para la Cz1 (por la mayor
 # cantidad de jugadoras cercanas a .8).
 
@@ -70,9 +70,9 @@ print(primera_ganadora)
 
 # CAZATALENTOS 3 ----------------------------------------------------------
 
-# Este caso es similar a las casatalentos 1 y 2, pero con solo 2 jugadoras.
+# Este caso es similar a las cazatalentos 1 y 2, pero con solo 2 jugadoras.
 # Tenemos menos confianza en tener una buena jugadora, dado que probamos a menos.
-# Dado que la "mejor" conpite solo con otra ligeramente inferior, tenemos más
+# Dado que la "mejor" compite solo con otra ligeramente inferior, tenemos más
 # posibilidad de haber seleccionado a la mejor de las dos.
 
 mejor <- 0.8
@@ -95,10 +95,10 @@ print(primera_ganadora)
 
 # CAZATALENTOS 4 ----------------------------------------------------------
 
-# Solo tira 10 tiros. Mas probabilidad de overfiting.
+# Solo tira 10 tiros. Más probabilidad de overfiting.
 # Si suponemos una probabilidad de 0.7 de enceste para todas, de 10000 torneos 
-# en casi el 40% observaríamos alguna jugadora con un indice de enceste aparente
-# del 0.80 o m'as
+# en casi el 40% observaríamos alguna jugadora con un índice de enceste aparente
+# del 0.80 o más
 print("CAZATALENTOS 4")
 print(paste0("Si hicieramos 10000 torneos de 10 tiros esperaríamos un índice de enceste >= 0.8 en el ",
              sum(rbinom(10000,10,.7) >= 8) * 100/10000, "% de los casos"))
@@ -112,7 +112,7 @@ print(paste0("Si hicieramos 10000 torneos de 10 tiros esperaríamos un índice d
 # Al tener una probabilidad promedio de 3 torneos tenemos más confianza en esta
 # estimación que en otros casos donde solo hubo un torneo.
 
-# La jugadora A tiene un promedio de acieros de 0.75
+# La jugadora A tiene un promedio de aciertos de 0.75
 (85 + 69 + 70) / (3*100)
 
 cz5_tiros <- 100
@@ -134,7 +134,7 @@ print(paste0("JUGADORA A, prob. aposteriori: ", cz5_probabilidad_aposteriori, " 
              cz5_IC_95_aposteriori[1], " - ", cz5_IC_95_aposteriori[2], ")"))
 
 
-# La jugadora B parece la mejor de las 5 con un promedio de acieros de 0.78
+# La jugadora B parece la mejor de las 5 con un promedio de aciertos de 0.78
 
 (84 + 74 + 76) / (3*100)
 
@@ -191,7 +191,7 @@ cz6_IC_95_aposteriori <- qbeta(c(.025, .975),
 # La probabilidad a posteriori se mantiene en 0.8 pero ahora tenemos más 
 # confianza en este valor (0.742 - 0.852).
 # Si la probabiliad a priori hubiera sido de .85 obtendríamos una probabiidad 
-# de .825 (.742 -.852), por lo que aun asignando una probabilidad a priori 
+# de .825 (.742 -.852), por lo que aún asignando una probabilidad a priori 
 # de 0.8 luego de observar el resultado de 80 aciertos confiamos aún más en la 
 # selección de la cazatalentos 6.
 
@@ -203,10 +203,11 @@ print(paste0("Prob. aposteriori: ", cz6_probabilidad_aposteriori, " IC95% (",
 # CAZATALENTOS 7 ----------------------------------------------------------
 
 # Vamos a suponer que el criterio para entrar en el grupo de las 5 seleccionadas
-# es tener al menos 80 aciertos de 100 tiros. Entonces estamos en una situacion 
+# es tener al menos 80 aciertos de 100 tiros. Entonces estamos en una situación 
 # similar a la cazatalentos 6, donde la mejor de la primer ronda (80 aciertos) 
 # repite el desempeño (80 aciertos).
-# Caso contrario, por la "maldicion de la ganadora" debería haber empeorado.
+# Caso contrario, por la "maldición de la ganadora" debería haber empeorado como
+# situación más probable.
 
 cz7_tiros_antes <- 100
 cz7_aciertos_antes <- 80
