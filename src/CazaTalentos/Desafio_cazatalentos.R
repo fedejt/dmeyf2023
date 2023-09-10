@@ -1,6 +1,7 @@
 # ORDEN SELECCIONADO (Cz# = CAZATALENTOS #)
 
 # Se ordena en base a las probabilidades obtenidas y la confianza en cada una.
+# ~ --> aprox. igual
 
 # Cz6 ~ Cz7 > Cz8 > Cz5 > Cz1 > Cz2 > Cz3 > Cz9 > Cz4
 
@@ -40,7 +41,12 @@ print(primera_ganadora)
 
 # Similar al caso de la cazatalentos 1, pero en este caso hay más jugadoras
 # parecidas entre sí, por lo que el riesgo de no seleccionar a la verdaderamente
-# mejor es mayor (más riesgo de "overfitear")
+# mejor es mayor (más riesgo de "overfitear").
+# En ambos casos (Cz1 y Cz2), si la mejor jugadora tiene un indice de enceste
+# 0.8 < p < 0.85 (no puede ser mayor a .85 según el enunciado), la probabilidad
+# se seleccionar a la mejor aumenta a medida que aumenta p (menos prob. overfiting).
+# Pero siempre la prob. para la Cz2 se mantiene menor que para la Cz1 (por la mayor
+# cantidad de jugadoras cercanas a .8).
 
 mejor <- 0.8
 peloton <- c(unlist(sapply(c(1,2,3,4,5,6), function(x) { rep(80-x,7-x)})), 
