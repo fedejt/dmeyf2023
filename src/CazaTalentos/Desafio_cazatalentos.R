@@ -96,7 +96,12 @@ print(primera_ganadora)
 # CAZATALENTOS 4 ----------------------------------------------------------
 
 # Solo tira 10 tiros. Mas probabilidad de overfiting.
-
+# Si suponemos una probabilidad de 0.7 de enceste para todas, de 10000 torneos 
+# en casi el 40% observaríamos alguna jugadora con un indice de enceste aparente
+# del 0.80 o m'as
+print("CAZATALENTOS 4")
+print(paste0("Si hicieramos 10000 torneos de 10 tiros esperaríamos un índice de enceste >= 0.8 en el ",
+             sum(rbinom(10000,10,.7) >= 8) * 100/10000, "% de los casos"))
 
 # CAZATALENTOS 5 ----------------------------------------------------------
 
