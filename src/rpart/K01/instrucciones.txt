@@ -1,0 +1,5 @@
+El archivo prp_centiles.R realiza el preprocesamiento y debe ejecutarse antes.
+
+E| archivo z322_rpart_ternaria_BO_repe_xval_BOs4i150c4L_centiles.R contiene la realiza de los hyperparametros.
+
+El archivo z101_PrimerModelo_BOs4i150c4L_ccentiles_03_cp078ms1383mb333md7.r realiza la predicción.
